@@ -29,6 +29,7 @@ module naming 'modules/naming.module.bicep' = {
     suffix: [
       applicationName
       environment
+      '**location**' // location/region placeholder, it will be replaced with its abbreviation
     ]
     uniqueLength: 6
     uniqueSeed: rg.id

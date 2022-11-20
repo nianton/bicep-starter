@@ -20,11 +20,13 @@ resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
 // Naming module to configure the naming conventions for Azure
 module naming 'modules/naming.module.bicep' = {
   scope: resourceGroup(rg.name)
-  name: 'NamingDeployment'  
+  name: 'NamingDeployment'
   params: {
+    location: location
     suffix: [
       applicationName
       environment
+      '**location**' // azure-naming location/region placeholder, it will be replaced with its abbreviation
     ]
     uniqueLength: 6
     uniqueSeed: rg.id

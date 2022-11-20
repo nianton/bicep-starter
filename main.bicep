@@ -5,7 +5,7 @@ param tags object
 // App Service Plan name should be unique within the resource group, opting for the simple 'name' property
 resource appServicePlan 'Microsoft.Web/serverfarms@2020-12-01' = {
   name: naming.appServicePlan.name
-  location: resourceGroup().location
+  location: location
   tags: tags
   sku: {
     name: 'F1'
