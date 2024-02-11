@@ -1,3 +1,5 @@
+import { NamingOutput } from './modules/naming.module.bicep'
+
 targetScope = 'subscription'
 
 param location string

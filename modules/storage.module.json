@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.12.40.16777",
+      "templateHash": "3503011138936154737"
+    }
+  },
+  "parameters": {
+    "location": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "kind": {
+      "type": "string",
+      "defaultValue": "StorageV2",
+      "allowedValues": [
+        "BlobStorage",
+        "BlockBlobStorage",
+        "FileStorage",
+        "Storage",
+        "StorageV2"
+      ]
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Premium_LRS",
+        "Premium_ZRS",
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_GZRS",
+        "Standard_RAGRS",
+        "Standard_RAGZRS",
+        "Standard_ZRS"
+      ]
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[toLower(replace(parameters('name'), '-', ''))]",
+      "location": "[parameters('location')]",
+      "kind": "[parameters('kind')]",
+      "sku": {
+        "name": "[parameters('skuName')]"
+      },
+      "tags": "[union(parameters('tags'), createObject('displayName', parameters('name')))]",
+      "properties": {
+        "accessTier": "Hot",
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ],
+  "outputs": {
+    "id": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Storage/storageAccounts', toLower(replace(parameters('name'), '-', '')))]"
+    },
+    "name": {
+      "type": "string",
+      "value": "[toLower(replace(parameters('name'), '-', ''))]"
+    },
+    "primaryEndpoints": {
+      "type": "object",
+      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', toLower(replace(parameters('name'), '-', ''))), '2019-06-01').primaryEndpoints]"
+    }
+  }
+}

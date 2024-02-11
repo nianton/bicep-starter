@@ -12,14 +12,7 @@ param tags object = {}
 param kind string = 'StorageV2'
 
 @allowed([
-  'Premium_LRS'
-  'Premium_ZRS'
-  'Standard_LRS'
-  'Standard_GRS'
-  'Standard_GZRS'
-  'Standard_RAGRS'
-  'Standard_RAGZRS'
-  'Standard_ZRS'
+  'Premium_LRS','Premium_ZRS','Standard_LRS','Standard_GRS','Standard_GZRS','Standard_RAGRS','Standard_RAGZRS','Standard_ZRS'
 ])
 param skuName string = 'Standard_LRS'
 

@@ -1,11 +1,646 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "languageVersion": "2.0",
   "contentVersion": "1.0.0.0",
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.12.40.16777",
-      "templateHash": "8539797104949984989"
+      "version": "0.25.3.34343",
+      "templateHash": "15415743282393997092"
+    }
+  },
+  "definitions": {
+    "_1.ServiceNameType": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "nameUnique": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      },
+      "metadata": {
+        "__bicep_imported_from!": {
+          "sourceTemplate": "modules/naming.module.bicep"
+        }
+      }
+    },
+    "NamingOutput": {
+      "type": "object",
+      "properties": {
+        "analysisServicesServer": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "apiManagement": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "appConfiguration": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "appServiceEnvironment": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "appServicePlan": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "appService": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "applicationGateway": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "applicationInsights": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "applicationSecurityGroup": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "automationAccount": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "automationCertificate": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "automationCredential": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "automationRunbook": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "automationSchedule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "automationVariable": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "availabilitySet": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "bastionHost": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "batchAccount": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "batchApplication": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "batchCertificate": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "batchPool": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "botChannelDirectline": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "botChannelEmail": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "botChannelMsTeams": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "botChannelSlack": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "botChannelsRegistration": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "botConnection": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "botWebApp": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "cdnEndpoint": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "cdnProfile": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "chaosExperiment": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "chaosTarget": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "cognitiveAccount": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "containerApps": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "containerAppsEnvironment": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "containerGroup": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "containerRegistry": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "containerRegistryWebhook": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "cosmosdbAccount": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "customProvider": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dashboard": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactory": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactoryDatasetMysql": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactoryDatasetPostgresql": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactoryDatasetSqlServerTable": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactoryIntegrationRuntimeManaged": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactoryLinkedServiceDataLakeStorageGen2": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactoryLinkedServiceKeyVault": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactoryLinkedServiceMysql": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactoryLinkedServicePostgresql": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactoryLinkedServiceSqlServer": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactoryPipeline": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataFactoryTriggerSchedule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataLakeAnalyticsAccount": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataLakeAnalyticsFirewallRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataLakeStore": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dataLakeStoreFirewallRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "databaseMigrationProject": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "databaseMigrationService": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "databricksWorkspace": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "devTestLab": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "devTestLinuxVirtualMachine": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "devTestWindowsVirtualMachine": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "diskEncryptionSet": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "dnsZone": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "eventGridDomain": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "eventGridDomainTopic": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "eventGridEventSubscription": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "eventGridTopic": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "eventHub": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "eventHubAuthorizationRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "eventHubConsumerGroup": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "eventHubNamespace": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "eventHubNamespaceAuthorizationRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "eventHubNamespaceDisasterRecoveryConfig": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "expressRouteCircuit": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "expressRouteGateway": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "firewall": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "firewallPolicy": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "frontDoor": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "frontDoorFirewallPolicy": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "functionApp": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "grafana": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "hdInsightHadoopCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "hdInsightHbaseCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "hdInsightInteractiveQueryCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "hdInsightKafkaCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "hdInsightMlServicesCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "hdInsightRserverCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "hdInsightSparkCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "hdInsightStormCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "image": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "iotCentralApplication": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "iotHub": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "iotHubConsumerGroup": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "iotHubDps": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "iotHubDpsCertificate": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "keyVault": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "keyVaultCertificate": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "keyVaultKey": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "keyVaultSecret": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "kubernetesCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "kustoCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "kustoDatabase": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "kustoEventHubDataConnection": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "loadBalancer": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "loadBalancerNatRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "loadTesting": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "linuxVirtualMachine": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "linuxVirtualMachineScaleSet": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "localNetworkGateway": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "logAnalyticsWorkspace": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "machineLearningWorkspace": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "managedDisk": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "managedIdentity": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mapsAccount": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mariadbDatabase": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mariadbFirewallRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mariadbServer": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mariadbVirtualNetworkRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mssqlDatabase": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mssqlElasticpool": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mssqlServer": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mysqlDatabase": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mysqlFirewallRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mysqlServer": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "mysqlVirtualNetworkRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "networkInterface": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "networkSecurityGroup": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "networkSecurityGroupRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "networkSecurityRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "networkWatcher": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "notificationHub": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "notificationHubAuthorizationRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "notificationHubNamespace": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "pointToSiteVpnGateway": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "postgresqlDatabase": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "postgresqlFirewallRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "postgresqlServer": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "postgresqlVirtualNetworkRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "powerbiEmbedded": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "privateDnsZone": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "publicIp": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "publicIpPrefix": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "redisCache": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "redisFirewallRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "relayHybridConnection": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "relayNamespace": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "resourceGroup": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "roleAssignment": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "roleDefinition": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "route": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "routeTable": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "serviceFabricCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "serviceFabricManagedCluster": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "serviceBusNamespace": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "serviceBusNamespaceAuthorizationRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "serviceBusQueue": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "serviceBusQueueAuthorizationRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "serviceBusSubscription": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "serviceBusSubscriptionRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "serviceBusTopic": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "serviceBusTopicAuthorizationRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "sharedImage": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "sharedImageGallery": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "signalrService": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "snapshots": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "sqlElasticpool": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "sqlFailoverGroup": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "sqlFirewallRule": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "sqlServer": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "storageAccount": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "storageBlob": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "storageContainer": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "storageDataLakeGen2Filesystem": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "storageQueue": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "storageShare": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "storageShareDirectory": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "storageTable": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "streamAnalyticsFunctionJavascriptUdf": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "streamAnalyticsJob": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "streamAnalyticsOutputBlob": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "streamAnalyticsOutputEventHub": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "streamAnalyticsOutputMssql": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "streamAnalyticsOutputServiceBusQueue": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "streamAnalyticsOutputServiceBusTopic": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "streamAnalyticsReferenceInputBlob": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "streamAnalyticsStreamInputBlob": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "streamAnalyticsStreamInputEventHub": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "streamAnalyticsStreamInputIotHub": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "subnet": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "templateDeployment": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "trafficManagerProfile": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "virtualMachine": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "virtualMachineScaleSet": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "virtualNetwork": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "virtualNetworkGateway": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "virtualNetworkPeering": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "virtualWan": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "windowsVirtualMachine": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        },
+        "windowsVirtualMachineScaleSet": {
+          "$ref": "#/definitions/_1.ServiceNameType"
+        }
+      },
+      "metadata": {
+        "__bicep_imported_from!": {
+          "sourceTemplate": "modules/naming.module.bicep"
+        }
+      }
     }
   },
   "parameters": {
@@ -26,17 +661,17 @@
   "variables": {
     "defaultTags": "[union(createObject('applicationName', parameters('applicationName'), 'environment', parameters('environment')), parameters('tags'))]"
   },
-  "resources": [
-    {
+  "resources": {
+    "rg": {
       "type": "Microsoft.Resources/resourceGroups",
       "apiVersion": "2021-04-01",
       "name": "[format('rg-{0}-{1}', parameters('applicationName'), parameters('environment'))]",
       "location": "[parameters('location')]",
       "tags": "[variables('defaultTags')]"
     },
-    {
+    "naming": {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2022-09-01",
       "name": "NamingDeployment",
       "resourceGroup": "[format('rg-{0}-{1}', parameters('applicationName'), parameters('environment'))]",
       "properties": {
@@ -64,12 +699,646 @@
         },
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "languageVersion": "2.0",
           "contentVersion": "1.0.0.0",
           "metadata": {
             "_generator": {
               "name": "bicep",
-              "version": "0.12.40.16777",
-              "templateHash": "16205994613663188782"
+              "version": "0.25.3.34343",
+              "templateHash": "18039693105299386105"
+            },
+            "name": "Azure Naming module",
+            "description": "This module help maintaining a consistent naming.",
+            "owner": "Azure/module-maintainers"
+          },
+          "definitions": {
+            "ServiceNameType": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "nameUnique": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                }
+              },
+              "metadata": {
+                "__bicep_export!": true
+              }
+            },
+            "NamingOutput": {
+              "type": "object",
+              "properties": {
+                "analysisServicesServer": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "apiManagement": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "appConfiguration": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "appServiceEnvironment": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "appServicePlan": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "appService": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "applicationGateway": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "applicationInsights": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "applicationSecurityGroup": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "automationAccount": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "automationCertificate": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "automationCredential": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "automationRunbook": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "automationSchedule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "automationVariable": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "availabilitySet": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "bastionHost": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "batchAccount": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "batchApplication": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "batchCertificate": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "batchPool": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "botChannelDirectline": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "botChannelEmail": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "botChannelMsTeams": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "botChannelSlack": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "botChannelsRegistration": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "botConnection": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "botWebApp": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "cdnEndpoint": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "cdnProfile": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "chaosExperiment": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "chaosTarget": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "cognitiveAccount": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "containerApps": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "containerAppsEnvironment": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "containerGroup": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "containerRegistry": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "containerRegistryWebhook": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "cosmosdbAccount": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "customProvider": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dashboard": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactory": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactoryDatasetMysql": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactoryDatasetPostgresql": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactoryDatasetSqlServerTable": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactoryIntegrationRuntimeManaged": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactoryLinkedServiceDataLakeStorageGen2": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactoryLinkedServiceKeyVault": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactoryLinkedServiceMysql": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactoryLinkedServicePostgresql": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactoryLinkedServiceSqlServer": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactoryPipeline": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataFactoryTriggerSchedule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataLakeAnalyticsAccount": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataLakeAnalyticsFirewallRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataLakeStore": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dataLakeStoreFirewallRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "databaseMigrationProject": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "databaseMigrationService": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "databricksWorkspace": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "devTestLab": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "devTestLinuxVirtualMachine": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "devTestWindowsVirtualMachine": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "diskEncryptionSet": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "dnsZone": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "eventGridDomain": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "eventGridDomainTopic": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "eventGridEventSubscription": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "eventGridTopic": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "eventHub": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "eventHubAuthorizationRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "eventHubConsumerGroup": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "eventHubNamespace": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "eventHubNamespaceAuthorizationRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "eventHubNamespaceDisasterRecoveryConfig": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "expressRouteCircuit": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "expressRouteGateway": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "firewall": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "firewallPolicy": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "frontDoor": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "frontDoorFirewallPolicy": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "functionApp": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "grafana": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "hdInsightHadoopCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "hdInsightHbaseCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "hdInsightInteractiveQueryCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "hdInsightKafkaCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "hdInsightMlServicesCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "hdInsightRserverCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "hdInsightSparkCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "hdInsightStormCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "image": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "iotCentralApplication": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "iotHub": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "iotHubConsumerGroup": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "iotHubDps": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "iotHubDpsCertificate": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "keyVault": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "keyVaultCertificate": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "keyVaultKey": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "keyVaultSecret": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "kubernetesCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "kustoCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "kustoDatabase": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "kustoEventHubDataConnection": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "loadBalancer": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "loadBalancerNatRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "loadTesting": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "linuxVirtualMachine": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "linuxVirtualMachineScaleSet": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "localNetworkGateway": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "logAnalyticsWorkspace": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "machineLearningWorkspace": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "managedDisk": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "managedIdentity": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mapsAccount": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mariadbDatabase": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mariadbFirewallRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mariadbServer": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mariadbVirtualNetworkRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mssqlDatabase": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mssqlElasticpool": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mssqlServer": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mysqlDatabase": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mysqlFirewallRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mysqlServer": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "mysqlVirtualNetworkRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "networkInterface": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "networkSecurityGroup": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "networkSecurityGroupRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "networkSecurityRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "networkWatcher": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "notificationHub": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "notificationHubAuthorizationRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "notificationHubNamespace": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "pointToSiteVpnGateway": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "postgresqlDatabase": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "postgresqlFirewallRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "postgresqlServer": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "postgresqlVirtualNetworkRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "powerbiEmbedded": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "privateDnsZone": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "publicIp": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "publicIpPrefix": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "redisCache": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "redisFirewallRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "relayHybridConnection": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "relayNamespace": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "resourceGroup": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "roleAssignment": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "roleDefinition": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "route": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "routeTable": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "serviceFabricCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "serviceFabricManagedCluster": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "serviceBusNamespace": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "serviceBusNamespaceAuthorizationRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "serviceBusQueue": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "serviceBusQueueAuthorizationRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "serviceBusSubscription": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "serviceBusSubscriptionRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "serviceBusTopic": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "serviceBusTopicAuthorizationRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "sharedImage": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "sharedImageGallery": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "signalrService": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "snapshots": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "sqlElasticpool": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "sqlFailoverGroup": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "sqlFirewallRule": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "sqlServer": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "storageAccount": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "storageBlob": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "storageContainer": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "storageDataLakeGen2Filesystem": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "storageQueue": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "storageShare": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "storageShareDirectory": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "storageTable": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "streamAnalyticsFunctionJavascriptUdf": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "streamAnalyticsJob": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "streamAnalyticsOutputBlob": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "streamAnalyticsOutputEventHub": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "streamAnalyticsOutputMssql": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "streamAnalyticsOutputServiceBusQueue": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "streamAnalyticsOutputServiceBusTopic": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "streamAnalyticsReferenceInputBlob": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "streamAnalyticsStreamInputBlob": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "streamAnalyticsStreamInputEventHub": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "streamAnalyticsStreamInputIotHub": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "subnet": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "templateDeployment": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "trafficManagerProfile": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "virtualMachine": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "virtualMachineScaleSet": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "virtualNetwork": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "virtualNetworkGateway": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "virtualNetworkPeering": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "virtualWan": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "windowsVirtualMachine": {
+                  "$ref": "#/definitions/ServiceNameType"
+                },
+                "windowsVirtualMachineScaleSet": {
+                  "$ref": "#/definitions/ServiceNameType"
+                }
+              },
+              "metadata": {
+                "__bicep_export!": true
+              }
             }
           },
           "parameters": {
@@ -134,6 +1403,7 @@
               "australiasoutheast": "ause",
               "brazilsouth": "brs",
               "brazilsoutheast": "brse",
+              "brazilus": "brus",
               "canadacentral": "canc",
               "canadaeast": "cane",
               "centralindia": "cin",
@@ -143,10 +1413,13 @@
               "eastus": "eus",
               "eastus2": "eus2",
               "eastus2euap": "eus2euap",
+              "eastusstg": "eusstg",
               "francecentral": "frc",
               "francesouth": "frs",
               "germanynorth": "gern",
               "germanywestcentral": "gerwc",
+              "israelcentral": "isc",
+              "italynorth": "itn",
               "japaneast": "jae",
               "japanwest": "jaw",
               "jioindiacentral": "jioinc",
@@ -157,6 +1430,8 @@
               "northeurope": "neu",
               "norwayeast": "nore",
               "norwaywest": "norw",
+              "polandcentral": "polc",
+              "qatarcentral": "qatc",
               "southafricanorth": "san",
               "southafricawest": "saw",
               "southcentralus": "scus",
@@ -343,6 +1618,16 @@
                 "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'cdnprof'), 260), variables('d')), take(replace(variables('nt'), variables('ph'), 'cdnprof'), sub(260, 1)), take(replace(variables('nt'), variables('ph'), 'cdnprof'), 260))]",
                 "nameUnique": "[if(endsWith(take(replace(variables('nut'), variables('ph'), 'cdnprof'), 260), variables('d')), take(replace(variables('nut'), variables('ph'), 'cdnprof'), sub(260, 1)), take(replace(variables('nut'), variables('ph'), 'cdnprof'), 260))]",
                 "slug": "cdnprof"
+              },
+              "chaosExperiment": {
+                "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'chaosexp'), 128), variables('d')), take(replace(variables('nt'), variables('ph'), 'chaosexp'), sub(128, 1)), take(replace(variables('nt'), variables('ph'), 'chaosexp'), 128))]",
+                "nameUnique": "[if(endsWith(take(replace(variables('nut'), variables('ph'), 'chaosexp'), 128), variables('d')), take(replace(variables('nut'), variables('ph'), 'chaosexp'), sub(128, 1)), take(replace(variables('nut'), variables('ph'), 'chaosexp'), 128))]",
+                "slug": "chaosexp"
+              },
+              "chaosTarget": {
+                "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'chaostarget'), 128), variables('d')), take(replace(variables('nt'), variables('ph'), 'chaostarget'), sub(128, 1)), take(replace(variables('nt'), variables('ph'), 'chaostarget'), 128))]",
+                "nameUnique": "[if(endsWith(take(replace(variables('nut'), variables('ph'), 'chaostarget'), 128), variables('d')), take(replace(variables('nut'), variables('ph'), 'chaostarget'), sub(128, 1)), take(replace(variables('nut'), variables('ph'), 'chaostarget'), 128))]",
+                "slug": "chaostarget"
               },
               "cognitiveAccount": {
                 "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'cog'), 64), variables('d')), take(replace(variables('nt'), variables('ph'), 'cog'), sub(64, 1)), take(replace(variables('nt'), variables('ph'), 'cog'), 64))]",
@@ -594,6 +1879,11 @@
                 "nameUnique": "[if(endsWith(take(replace(variables('nut'), variables('ph'), 'func'), 60), variables('d')), take(replace(variables('nut'), variables('ph'), 'func'), sub(60, 1)), take(replace(variables('nut'), variables('ph'), 'func'), 60))]",
                 "slug": "func"
               },
+              "grafana": {
+                "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'grfn'), 23), variables('d')), take(replace(variables('nt'), variables('ph'), 'grfn'), sub(23, 1)), take(replace(variables('nt'), variables('ph'), 'grfn'), 23))]",
+                "nameUnique": "[if(endsWith(take(replace(variables('nut'), variables('ph'), 'grfn'), 23), variables('d')), take(replace(variables('nut'), variables('ph'), 'grfn'), sub(23, 1)), take(replace(variables('nut'), variables('ph'), 'grfn'), 23))]",
+                "slug": "grfn"
+              },
               "hdInsightHadoopCluster": {
                 "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'hadoop'), 59), variables('d')), take(replace(variables('nt'), variables('ph'), 'hadoop'), sub(59, 1)), take(replace(variables('nt'), variables('ph'), 'hadoop'), 59))]",
                 "nameUnique": "[if(endsWith(take(replace(variables('nut'), variables('ph'), 'hadoop'), 59), variables('d')), take(replace(variables('nut'), variables('ph'), 'hadoop'), sub(59, 1)), take(replace(variables('nut'), variables('ph'), 'hadoop'), 59))]",
@@ -748,6 +2038,11 @@
                 "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'dsk'), 80), variables('d')), take(replace(variables('nt'), variables('ph'), 'dsk'), sub(80, 1)), take(replace(variables('nt'), variables('ph'), 'dsk'), 80))]",
                 "nameUnique": "[if(endsWith(take(replace(variables('nut'), variables('ph'), 'dsk'), 80), variables('d')), take(replace(variables('nut'), variables('ph'), 'dsk'), sub(80, 1)), take(replace(variables('nut'), variables('ph'), 'dsk'), 80))]",
                 "slug": "dsk"
+              },
+              "managedIdentity": {
+                "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'id'), 128), variables('d')), take(replace(variables('nt'), variables('ph'), 'id'), sub(128, 1)), take(replace(variables('nt'), variables('ph'), 'id'), 128))]",
+                "nameUnique": "[if(endsWith(take(replace(variables('nut'), variables('ph'), 'id'), 128), variables('d')), take(replace(variables('nut'), variables('ph'), 'id'), sub(128, 1)), take(replace(variables('nut'), variables('ph'), 'id'), 128))]",
+                "slug": "id"
               },
               "mapsAccount": {
                 "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'map'), 98), variables('d')), take(replace(variables('nt'), variables('ph'), 'map'), sub(98, 1)), take(replace(variables('nt'), variables('ph'), 'map'), 98))]",
@@ -943,6 +2238,11 @@
                 "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'sf'), 23), variables('d')), take(replace(variables('nt'), variables('ph'), 'sf'), sub(23, 1)), take(replace(variables('nt'), variables('ph'), 'sf'), 23))]",
                 "nameUnique": "[if(endsWith(take(replace(variables('nut'), variables('ph'), 'sf'), 23), variables('d')), take(replace(variables('nut'), variables('ph'), 'sf'), sub(23, 1)), take(replace(variables('nut'), variables('ph'), 'sf'), 23))]",
                 "slug": "sf"
+              },
+              "serviceFabricManagedCluster": {
+                "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'sfmc'), 23), variables('d')), take(replace(variables('nt'), variables('ph'), 'sfmc'), sub(23, 1)), take(replace(variables('nt'), variables('ph'), 'sfmc'), 23))]",
+                "nameUnique": "[if(endsWith(take(replace(variables('nut'), variables('ph'), 'sfmc'), 23), variables('d')), take(replace(variables('nut'), variables('ph'), 'sfmc'), sub(23, 1)), take(replace(variables('nut'), variables('ph'), 'sfmc'), 23))]",
+                "slug": "sfmc"
               },
               "serviceBusNamespace": {
                 "name": "[if(endsWith(take(replace(variables('nt'), variables('ph'), 'sb'), 50), variables('d')), take(replace(variables('nt'), variables('ph'), 'sb'), sub(50, 1)), take(replace(variables('nt'), variables('ph'), 'sb'), 50))]",
@@ -1176,10 +2476,10 @@
               }
             }
           },
-          "resources": [],
+          "resources": {},
           "outputs": {
             "names": {
-              "type": "object",
+              "$ref": "#/definitions/NamingOutput",
               "value": "[variables('names')]"
             },
             "regionAbbreviations": {
@@ -1190,12 +2490,12 @@
         }
       },
       "dependsOn": [
-        "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-{0}-{1}', parameters('applicationName'), parameters('environment')))]"
+        "rg"
       ]
     },
-    {
+    "main": {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2022-09-01",
       "name": "MainDeployment",
       "resourceGroup": "[format('rg-{0}-{1}', parameters('applicationName'), parameters('environment'))]",
       "properties": {
@@ -1208,7 +2508,7 @@
             "value": "[parameters('location')]"
           },
           "naming": {
-            "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-{0}-{1}', parameters('applicationName'), parameters('environment'))), 'Microsoft.Resources/deployments', 'NamingDeployment'), '2020-10-01').outputs.names.value]"
+            "value": "[reference('naming').outputs.names.value]"
           },
           "tags": {
             "value": "[variables('defaultTags')]"
@@ -1216,17 +2516,652 @@
         },
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "languageVersion": "2.0",
           "contentVersion": "1.0.0.0",
           "metadata": {
             "_generator": {
               "name": "bicep",
-              "version": "0.12.40.16777",
-              "templateHash": "11302432498511052651"
+              "version": "0.25.3.34343",
+              "templateHash": "13727304641835906668"
+            }
+          },
+          "definitions": {
+            "_1.ServiceNameType": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "nameUnique": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                }
+              },
+              "metadata": {
+                "__bicep_imported_from!": {
+                  "sourceTemplate": "modules/naming.module.bicep"
+                }
+              }
+            },
+            "NamingOutput": {
+              "type": "object",
+              "properties": {
+                "analysisServicesServer": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "apiManagement": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "appConfiguration": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "appServiceEnvironment": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "appServicePlan": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "appService": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "applicationGateway": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "applicationInsights": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "applicationSecurityGroup": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "automationAccount": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "automationCertificate": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "automationCredential": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "automationRunbook": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "automationSchedule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "automationVariable": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "availabilitySet": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "bastionHost": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "batchAccount": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "batchApplication": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "batchCertificate": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "batchPool": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "botChannelDirectline": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "botChannelEmail": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "botChannelMsTeams": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "botChannelSlack": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "botChannelsRegistration": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "botConnection": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "botWebApp": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "cdnEndpoint": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "cdnProfile": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "chaosExperiment": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "chaosTarget": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "cognitiveAccount": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "containerApps": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "containerAppsEnvironment": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "containerGroup": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "containerRegistry": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "containerRegistryWebhook": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "cosmosdbAccount": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "customProvider": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dashboard": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactory": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactoryDatasetMysql": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactoryDatasetPostgresql": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactoryDatasetSqlServerTable": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactoryIntegrationRuntimeManaged": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactoryLinkedServiceDataLakeStorageGen2": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactoryLinkedServiceKeyVault": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactoryLinkedServiceMysql": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactoryLinkedServicePostgresql": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactoryLinkedServiceSqlServer": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactoryPipeline": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataFactoryTriggerSchedule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataLakeAnalyticsAccount": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataLakeAnalyticsFirewallRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataLakeStore": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dataLakeStoreFirewallRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "databaseMigrationProject": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "databaseMigrationService": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "databricksWorkspace": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "devTestLab": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "devTestLinuxVirtualMachine": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "devTestWindowsVirtualMachine": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "diskEncryptionSet": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "dnsZone": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "eventGridDomain": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "eventGridDomainTopic": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "eventGridEventSubscription": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "eventGridTopic": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "eventHub": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "eventHubAuthorizationRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "eventHubConsumerGroup": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "eventHubNamespace": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "eventHubNamespaceAuthorizationRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "eventHubNamespaceDisasterRecoveryConfig": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "expressRouteCircuit": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "expressRouteGateway": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "firewall": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "firewallPolicy": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "frontDoor": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "frontDoorFirewallPolicy": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "functionApp": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "grafana": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "hdInsightHadoopCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "hdInsightHbaseCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "hdInsightInteractiveQueryCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "hdInsightKafkaCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "hdInsightMlServicesCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "hdInsightRserverCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "hdInsightSparkCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "hdInsightStormCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "image": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "iotCentralApplication": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "iotHub": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "iotHubConsumerGroup": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "iotHubDps": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "iotHubDpsCertificate": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "keyVault": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "keyVaultCertificate": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "keyVaultKey": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "keyVaultSecret": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "kubernetesCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "kustoCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "kustoDatabase": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "kustoEventHubDataConnection": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "loadBalancer": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "loadBalancerNatRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "loadTesting": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "linuxVirtualMachine": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "linuxVirtualMachineScaleSet": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "localNetworkGateway": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "logAnalyticsWorkspace": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "machineLearningWorkspace": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "managedDisk": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "managedIdentity": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mapsAccount": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mariadbDatabase": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mariadbFirewallRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mariadbServer": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mariadbVirtualNetworkRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mssqlDatabase": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mssqlElasticpool": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mssqlServer": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mysqlDatabase": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mysqlFirewallRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mysqlServer": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "mysqlVirtualNetworkRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "networkInterface": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "networkSecurityGroup": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "networkSecurityGroupRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "networkSecurityRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "networkWatcher": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "notificationHub": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "notificationHubAuthorizationRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "notificationHubNamespace": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "pointToSiteVpnGateway": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "postgresqlDatabase": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "postgresqlFirewallRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "postgresqlServer": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "postgresqlVirtualNetworkRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "powerbiEmbedded": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "privateDnsZone": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "publicIp": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "publicIpPrefix": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "redisCache": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "redisFirewallRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "relayHybridConnection": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "relayNamespace": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "resourceGroup": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "roleAssignment": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "roleDefinition": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "route": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "routeTable": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "serviceFabricCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "serviceFabricManagedCluster": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "serviceBusNamespace": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "serviceBusNamespaceAuthorizationRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "serviceBusQueue": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "serviceBusQueueAuthorizationRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "serviceBusSubscription": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "serviceBusSubscriptionRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "serviceBusTopic": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "serviceBusTopicAuthorizationRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "sharedImage": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "sharedImageGallery": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "signalrService": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "snapshots": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "sqlElasticpool": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "sqlFailoverGroup": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "sqlFirewallRule": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "sqlServer": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "storageAccount": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "storageBlob": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "storageContainer": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "storageDataLakeGen2Filesystem": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "storageQueue": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "storageShare": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "storageShareDirectory": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "storageTable": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "streamAnalyticsFunctionJavascriptUdf": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "streamAnalyticsJob": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "streamAnalyticsOutputBlob": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "streamAnalyticsOutputEventHub": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "streamAnalyticsOutputMssql": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "streamAnalyticsOutputServiceBusQueue": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "streamAnalyticsOutputServiceBusTopic": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "streamAnalyticsReferenceInputBlob": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "streamAnalyticsStreamInputBlob": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "streamAnalyticsStreamInputEventHub": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "streamAnalyticsStreamInputIotHub": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "subnet": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "templateDeployment": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "trafficManagerProfile": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "virtualMachine": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "virtualMachineScaleSet": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "virtualNetwork": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "virtualNetworkGateway": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "virtualNetworkPeering": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "virtualWan": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "windowsVirtualMachine": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                },
+                "windowsVirtualMachineScaleSet": {
+                  "$ref": "#/definitions/_1.ServiceNameType"
+                }
+              },
+              "metadata": {
+                "__bicep_imported_from!": {
+                  "sourceTemplate": "modules/naming.module.bicep"
+                }
+              }
             }
           },
           "parameters": {
             "naming": {
-              "type": "object"
+              "$ref": "#/definitions/NamingOutput"
             },
             "location": {
               "type": "string",
@@ -1236,11 +3171,18 @@
               "type": "object"
             }
           },
-          "resources": [
-            {
+          "variables": {
+            "resourceNames": {
+              "appServicePlan": "[parameters('naming').appServicePlan.name]",
+              "appService": "[parameters('naming').appService.nameUnique]",
+              "storageAccount": "[parameters('naming').storageAccount.nameUnique]"
+            }
+          },
+          "resources": {
+            "appServicePlan": {
               "type": "Microsoft.Web/serverfarms",
               "apiVersion": "2020-12-01",
-              "name": "[parameters('naming').appServicePlan.name]",
+              "name": "[variables('resourceNames').appServicePlan]",
               "location": "[parameters('location')]",
               "tags": "[parameters('tags')]",
               "sku": {
@@ -1248,22 +3190,22 @@
                 "capacity": 1
               }
             },
-            {
+            "webApplication": {
               "type": "Microsoft.Web/sites",
               "apiVersion": "2018-11-01",
-              "name": "[parameters('naming').appService.nameUnique]",
+              "name": "[variables('resourceNames').appService]",
               "location": "[parameters('location')]",
-              "tags": "[union(createObject(format('hidden-related:{0}/providers/Microsoft.Web/serverfarms/{1}', resourceGroup().id, parameters('naming').appServicePlan.name), 'Resource'), parameters('tags'))]",
+              "tags": "[union(createObject(format('hidden-related:{0}/providers/Microsoft.Web/serverfarms/{1}', resourceGroup().id, variables('resourceNames').appServicePlan), 'Resource'), parameters('tags'))]",
               "properties": {
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('naming').appServicePlan.name)]"
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('resourceNames').appServicePlan)]"
               },
               "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('naming').appServicePlan.name)]"
+                "appServicePlan"
               ]
             },
-            {
+            "storage": {
               "type": "Microsoft.Resources/deployments",
-              "apiVersion": "2020-10-01",
+              "apiVersion": "2022-09-01",
               "name": "StorageAccountDeployment",
               "properties": {
                 "expressionEvaluationOptions": {
@@ -1281,7 +3223,7 @@
                     "value": "Standard_LRS"
                   },
                   "name": {
-                    "value": "[parameters('naming').storageAccount.nameUnique]"
+                    "value": "[variables('resourceNames').storageAccount]"
                   },
                   "tags": {
                     "value": "[parameters('tags')]"
@@ -1293,8 +3235,8 @@
                   "metadata": {
                     "_generator": {
                       "name": "bicep",
-                      "version": "0.12.40.16777",
-                      "templateHash": "3503011138936154737"
+                      "version": "0.25.3.34343",
+                      "templateHash": "14322391716003551036"
                     }
                   },
                   "parameters": {
@@ -1368,29 +3310,29 @@
                 }
               }
             }
-          ],
+          },
           "outputs": {
             "storageAccountName": {
               "type": "string",
-              "value": "[reference(resourceId('Microsoft.Resources/deployments', 'StorageAccountDeployment'), '2020-10-01').outputs.name.value]"
+              "value": "[reference('storage').outputs.name.value]"
             },
             "appServiceName": {
               "type": "string",
-              "value": "[parameters('naming').appService.nameUnique]"
+              "value": "[variables('resourceNames').appService]"
             },
             "appServicePlanName": {
               "type": "string",
-              "value": "[parameters('naming').appServicePlan.name]"
+              "value": "[variables('resourceNames').appServicePlan]"
             }
           }
         }
       },
       "dependsOn": [
-        "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-{0}-{1}', parameters('applicationName'), parameters('environment'))), 'Microsoft.Resources/deployments', 'NamingDeployment')]",
-        "[subscriptionResourceId('Microsoft.Resources/resourceGroups', format('rg-{0}-{1}', parameters('applicationName'), parameters('environment')))]"
+        "naming",
+        "rg"
       ]
     }
-  ],
+  },
   "outputs": {
     "resourceGroupId": {
       "type": "string",
@@ -1402,15 +3344,15 @@
     },
     "appServiceName": {
       "type": "string",
-      "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-{0}-{1}', parameters('applicationName'), parameters('environment'))), 'Microsoft.Resources/deployments', 'MainDeployment'), '2020-10-01').outputs.appServiceName.value]"
+      "value": "[reference('main').outputs.appServiceName.value]"
     },
     "appServicePlanName": {
       "type": "string",
-      "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-{0}-{1}', parameters('applicationName'), parameters('environment'))), 'Microsoft.Resources/deployments', 'MainDeployment'), '2020-10-01').outputs.appServicePlanName.value]"
+      "value": "[reference('main').outputs.appServicePlanName.value]"
     },
     "storageAccountName": {
       "type": "string",
-      "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, format('rg-{0}-{1}', parameters('applicationName'), parameters('environment'))), 'Microsoft.Resources/deployments', 'MainDeployment'), '2020-10-01').outputs.storageAccountName.value]"
+      "value": "[reference('main').outputs.storageAccountName.value]"
     }
   }
 }

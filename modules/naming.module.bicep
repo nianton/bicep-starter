@@ -5,12 +5,15 @@
  * Module repository & documentation: https://github.com/nianton/azure-naming
  * Starter repository template:       https://github.com/nianton/bicep-starter
  * ----------------------------------------------------------------------------
- * Microsoft naming convention best practices
+ * Microsoft naming convention best practices (supports user-defined types and compile time imports)
  * https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
  * ----------------------------------------------------------------------------
- * Generated/built on: 2022-11-20T10:22:51.767Z
  */
 
+ metadata name = 'Azure Naming module'
+ metadata description = 'This module help maintaining a consistent naming.'
+ metadata owner = 'Azure/module-maintainers'
+ 
  @description('Optional. It is not recommended that you use prefix by azure you should be using a suffix for your resources.')
  param prefix array = []
  
@@ -42,6 +45,7 @@
      australiasoutheast: 'ause'
      brazilsouth: 'brs'
      brazilsoutheast: 'brse'
+     brazilus: 'brus'
      canadacentral: 'canc'
      canadaeast: 'cane'
      centralindia: 'cin'
@@ -51,10 +55,13 @@
      eastus: 'eus'
      eastus2: 'eus2'
      eastus2euap: 'eus2euap'
+     eastusstg: 'eusstg'
      francecentral: 'frc'
      francesouth: 'frs'
      germanynorth: 'gern'
      germanywestcentral: 'gerwc'
+     israelcentral: 'isc'
+     italynorth: 'itn'
      japaneast: 'jae'
      japanwest: 'jaw'
      jioindiacentral: 'jioinc'
@@ -65,6 +72,8 @@
      northeurope: 'neu'
      norwayeast: 'nore'
      norwaywest: 'norw'
+     polandcentral: 'polc'
+     qatarcentral: 'qatc'
      southafricanorth: 'san'
      southafricawest: 'saw'
      southcentralus: 'scus'
@@ -256,6 +265,16 @@
      name: endsWith(take(replace(nt, ph, 'cdnprof'), 260), d) ? take(replace(nt, ph, 'cdnprof'), 260-1) : take(replace(nt, ph, 'cdnprof'), 260)
      nameUnique: endsWith(take(replace(nut, ph, 'cdnprof'), 260), d) ? take(replace(nut, ph, 'cdnprof'), 260-1) : take(replace(nut, ph, 'cdnprof'), 260)
      slug: 'cdnprof'
+   }
+   chaosExperiment: { 
+     name: endsWith(take(replace(nt, ph, 'chaosexp'), 128), d) ? take(replace(nt, ph, 'chaosexp'), 128-1) : take(replace(nt, ph, 'chaosexp'), 128)
+     nameUnique: endsWith(take(replace(nut, ph, 'chaosexp'), 128), d) ? take(replace(nut, ph, 'chaosexp'), 128-1) : take(replace(nut, ph, 'chaosexp'), 128)
+     slug: 'chaosexp'
+   }
+   chaosTarget: { 
+     name: endsWith(take(replace(nt, ph, 'chaostarget'), 128), d) ? take(replace(nt, ph, 'chaostarget'), 128-1) : take(replace(nt, ph, 'chaostarget'), 128)
+     nameUnique: endsWith(take(replace(nut, ph, 'chaostarget'), 128), d) ? take(replace(nut, ph, 'chaostarget'), 128-1) : take(replace(nut, ph, 'chaostarget'), 128)
+     slug: 'chaostarget'
    }
    cognitiveAccount: { 
      name: endsWith(take(replace(nt, ph, 'cog'), 64), d) ? take(replace(nt, ph, 'cog'), 64-1) : take(replace(nt, ph, 'cog'), 64)
@@ -507,6 +526,11 @@
      nameUnique: endsWith(take(replace(nut, ph, 'func'), 60), d) ? take(replace(nut, ph, 'func'), 60-1) : take(replace(nut, ph, 'func'), 60)
      slug: 'func'
    }
+   grafana: { 
+     name: endsWith(take(replace(nt, ph, 'grfn'), 23), d) ? take(replace(nt, ph, 'grfn'), 23-1) : take(replace(nt, ph, 'grfn'), 23)
+     nameUnique: endsWith(take(replace(nut, ph, 'grfn'), 23), d) ? take(replace(nut, ph, 'grfn'), 23-1) : take(replace(nut, ph, 'grfn'), 23)
+     slug: 'grfn'
+   }
    hdInsightHadoopCluster: { 
      name: endsWith(take(replace(nt, ph, 'hadoop'), 59), d) ? take(replace(nt, ph, 'hadoop'), 59-1) : take(replace(nt, ph, 'hadoop'), 59)
      nameUnique: endsWith(take(replace(nut, ph, 'hadoop'), 59), d) ? take(replace(nut, ph, 'hadoop'), 59-1) : take(replace(nut, ph, 'hadoop'), 59)
@@ -661,6 +685,11 @@
      name: endsWith(take(replace(nt, ph, 'dsk'), 80), d) ? take(replace(nt, ph, 'dsk'), 80-1) : take(replace(nt, ph, 'dsk'), 80)
      nameUnique: endsWith(take(replace(nut, ph, 'dsk'), 80), d) ? take(replace(nut, ph, 'dsk'), 80-1) : take(replace(nut, ph, 'dsk'), 80)
      slug: 'dsk'
+   }
+   managedIdentity: { 
+     name: endsWith(take(replace(nt, ph, 'id'), 128), d) ? take(replace(nt, ph, 'id'), 128-1) : take(replace(nt, ph, 'id'), 128)
+     nameUnique: endsWith(take(replace(nut, ph, 'id'), 128), d) ? take(replace(nut, ph, 'id'), 128-1) : take(replace(nut, ph, 'id'), 128)
+     slug: 'id'
    }
    mapsAccount: { 
      name: endsWith(take(replace(nt, ph, 'map'), 98), d) ? take(replace(nt, ph, 'map'), 98-1) : take(replace(nt, ph, 'map'), 98)
@@ -856,6 +885,11 @@
      name: endsWith(take(replace(nt, ph, 'sf'), 23), d) ? take(replace(nt, ph, 'sf'), 23-1) : take(replace(nt, ph, 'sf'), 23)
      nameUnique: endsWith(take(replace(nut, ph, 'sf'), 23), d) ? take(replace(nut, ph, 'sf'), 23-1) : take(replace(nut, ph, 'sf'), 23)
      slug: 'sf'
+   }
+   serviceFabricManagedCluster: { 
+     name: endsWith(take(replace(nt, ph, 'sfmc'), 23), d) ? take(replace(nt, ph, 'sfmc'), 23-1) : take(replace(nt, ph, 'sfmc'), 23)
+     nameUnique: endsWith(take(replace(nut, ph, 'sfmc'), 23), d) ? take(replace(nut, ph, 'sfmc'), 23-1) : take(replace(nut, ph, 'sfmc'), 23)
+     slug: 'sfmc'
    }
    serviceBusNamespace: { 
      name: endsWith(take(replace(nt, ph, 'sb'), 50), d) ? take(replace(nt, ph, 'sb'), 50-1) : take(replace(nt, ph, 'sb'), 50)
@@ -1089,5 +1123,221 @@
    }
  }
  
- output names object = names
+ output names NamingOutput = names
  output regionAbbreviations object = regionAbbreviations
+ 
+ // ================== //
+ //  Type Definitions  //
+ // ================== //
+ 
+ @export()
+ type ServiceNameType = {
+   name: string
+   nameUnique: string
+   slug: string
+ }
+ 
+ @export()
+ type NamingOutput = {
+   analysisServicesServer: ServiceNameType
+   apiManagement: ServiceNameType
+   appConfiguration: ServiceNameType
+   appServiceEnvironment: ServiceNameType
+   appServicePlan: ServiceNameType
+   appService: ServiceNameType
+   applicationGateway: ServiceNameType
+   applicationInsights: ServiceNameType
+   applicationSecurityGroup: ServiceNameType
+   automationAccount: ServiceNameType
+   automationCertificate: ServiceNameType
+   automationCredential: ServiceNameType
+   automationRunbook: ServiceNameType
+   automationSchedule: ServiceNameType
+   automationVariable: ServiceNameType
+   availabilitySet: ServiceNameType
+   bastionHost: ServiceNameType
+   batchAccount: ServiceNameType
+   batchApplication: ServiceNameType
+   batchCertificate: ServiceNameType
+   batchPool: ServiceNameType
+   botChannelDirectline: ServiceNameType
+   botChannelEmail: ServiceNameType
+   botChannelMsTeams: ServiceNameType
+   botChannelSlack: ServiceNameType
+   botChannelsRegistration: ServiceNameType
+   botConnection: ServiceNameType
+   botWebApp: ServiceNameType
+   cdnEndpoint: ServiceNameType
+   cdnProfile: ServiceNameType
+   chaosExperiment: ServiceNameType
+   chaosTarget: ServiceNameType
+   cognitiveAccount: ServiceNameType
+   containerApps: ServiceNameType
+   containerAppsEnvironment: ServiceNameType
+   containerGroup: ServiceNameType
+   containerRegistry: ServiceNameType
+   containerRegistryWebhook: ServiceNameType
+   cosmosdbAccount: ServiceNameType
+   customProvider: ServiceNameType
+   dashboard: ServiceNameType
+   dataFactory: ServiceNameType
+   dataFactoryDatasetMysql: ServiceNameType
+   dataFactoryDatasetPostgresql: ServiceNameType
+   dataFactoryDatasetSqlServerTable: ServiceNameType
+   dataFactoryIntegrationRuntimeManaged: ServiceNameType
+   dataFactoryLinkedServiceDataLakeStorageGen2: ServiceNameType
+   dataFactoryLinkedServiceKeyVault: ServiceNameType
+   dataFactoryLinkedServiceMysql: ServiceNameType
+   dataFactoryLinkedServicePostgresql: ServiceNameType
+   dataFactoryLinkedServiceSqlServer: ServiceNameType
+   dataFactoryPipeline: ServiceNameType
+   dataFactoryTriggerSchedule: ServiceNameType
+   dataLakeAnalyticsAccount: ServiceNameType
+   dataLakeAnalyticsFirewallRule: ServiceNameType
+   dataLakeStore: ServiceNameType
+   dataLakeStoreFirewallRule: ServiceNameType
+   databaseMigrationProject: ServiceNameType
+   databaseMigrationService: ServiceNameType
+   databricksWorkspace: ServiceNameType
+   devTestLab: ServiceNameType
+   devTestLinuxVirtualMachine: ServiceNameType
+   devTestWindowsVirtualMachine: ServiceNameType
+   diskEncryptionSet: ServiceNameType
+   dnsZone: ServiceNameType
+   eventGridDomain: ServiceNameType
+   eventGridDomainTopic: ServiceNameType
+   eventGridEventSubscription: ServiceNameType
+   eventGridTopic: ServiceNameType
+   eventHub: ServiceNameType
+   eventHubAuthorizationRule: ServiceNameType
+   eventHubConsumerGroup: ServiceNameType
+   eventHubNamespace: ServiceNameType
+   eventHubNamespaceAuthorizationRule: ServiceNameType
+   eventHubNamespaceDisasterRecoveryConfig: ServiceNameType
+   expressRouteCircuit: ServiceNameType
+   expressRouteGateway: ServiceNameType
+   firewall: ServiceNameType
+   firewallPolicy: ServiceNameType
+   frontDoor: ServiceNameType
+   frontDoorFirewallPolicy: ServiceNameType
+   functionApp: ServiceNameType
+   grafana: ServiceNameType
+   hdInsightHadoopCluster: ServiceNameType
+   hdInsightHbaseCluster: ServiceNameType
+   hdInsightInteractiveQueryCluster: ServiceNameType
+   hdInsightKafkaCluster: ServiceNameType
+   hdInsightMlServicesCluster: ServiceNameType
+   hdInsightRserverCluster: ServiceNameType
+   hdInsightSparkCluster: ServiceNameType
+   hdInsightStormCluster: ServiceNameType
+   image: ServiceNameType
+   iotCentralApplication: ServiceNameType
+   iotHub: ServiceNameType
+   iotHubConsumerGroup: ServiceNameType
+   iotHubDps: ServiceNameType
+   iotHubDpsCertificate: ServiceNameType
+   keyVault: ServiceNameType
+   keyVaultCertificate: ServiceNameType
+   keyVaultKey: ServiceNameType
+   keyVaultSecret: ServiceNameType
+   kubernetesCluster: ServiceNameType
+   kustoCluster: ServiceNameType
+   kustoDatabase: ServiceNameType
+   kustoEventHubDataConnection: ServiceNameType
+   loadBalancer: ServiceNameType
+   loadBalancerNatRule: ServiceNameType
+   loadTesting: ServiceNameType
+   linuxVirtualMachine: ServiceNameType
+   linuxVirtualMachineScaleSet: ServiceNameType
+   localNetworkGateway: ServiceNameType
+   logAnalyticsWorkspace: ServiceNameType
+   machineLearningWorkspace: ServiceNameType
+   managedDisk: ServiceNameType
+   managedIdentity: ServiceNameType
+   mapsAccount: ServiceNameType
+   mariadbDatabase: ServiceNameType
+   mariadbFirewallRule: ServiceNameType
+   mariadbServer: ServiceNameType
+   mariadbVirtualNetworkRule: ServiceNameType
+   mssqlDatabase: ServiceNameType
+   mssqlElasticpool: ServiceNameType
+   mssqlServer: ServiceNameType
+   mysqlDatabase: ServiceNameType
+   mysqlFirewallRule: ServiceNameType
+   mysqlServer: ServiceNameType
+   mysqlVirtualNetworkRule: ServiceNameType
+   networkInterface: ServiceNameType
+   networkSecurityGroup: ServiceNameType
+   networkSecurityGroupRule: ServiceNameType
+   networkSecurityRule: ServiceNameType
+   networkWatcher: ServiceNameType
+   notificationHub: ServiceNameType
+   notificationHubAuthorizationRule: ServiceNameType
+   notificationHubNamespace: ServiceNameType
+   pointToSiteVpnGateway: ServiceNameType
+   postgresqlDatabase: ServiceNameType
+   postgresqlFirewallRule: ServiceNameType
+   postgresqlServer: ServiceNameType
+   postgresqlVirtualNetworkRule: ServiceNameType
+   powerbiEmbedded: ServiceNameType
+   privateDnsZone: ServiceNameType
+   publicIp: ServiceNameType
+   publicIpPrefix: ServiceNameType
+   redisCache: ServiceNameType
+   redisFirewallRule: ServiceNameType
+   relayHybridConnection: ServiceNameType
+   relayNamespace: ServiceNameType
+   resourceGroup: ServiceNameType
+   roleAssignment: ServiceNameType
+   roleDefinition: ServiceNameType
+   route: ServiceNameType
+   routeTable: ServiceNameType
+   serviceFabricCluster: ServiceNameType
+   serviceFabricManagedCluster: ServiceNameType
+   serviceBusNamespace: ServiceNameType
+   serviceBusNamespaceAuthorizationRule: ServiceNameType
+   serviceBusQueue: ServiceNameType
+   serviceBusQueueAuthorizationRule: ServiceNameType
+   serviceBusSubscription: ServiceNameType
+   serviceBusSubscriptionRule: ServiceNameType
+   serviceBusTopic: ServiceNameType
+   serviceBusTopicAuthorizationRule: ServiceNameType
+   sharedImage: ServiceNameType
+   sharedImageGallery: ServiceNameType
+   signalrService: ServiceNameType
+   snapshots: ServiceNameType
+   sqlElasticpool: ServiceNameType
+   sqlFailoverGroup: ServiceNameType
+   sqlFirewallRule: ServiceNameType
+   sqlServer: ServiceNameType
+   storageAccount: ServiceNameType
+   storageBlob: ServiceNameType
+   storageContainer: ServiceNameType
+   storageDataLakeGen2Filesystem: ServiceNameType
+   storageQueue: ServiceNameType
+   storageShare: ServiceNameType
+   storageShareDirectory: ServiceNameType
+   storageTable: ServiceNameType
+   streamAnalyticsFunctionJavascriptUdf: ServiceNameType
+   streamAnalyticsJob: ServiceNameType
+   streamAnalyticsOutputBlob: ServiceNameType
+   streamAnalyticsOutputEventHub: ServiceNameType
+   streamAnalyticsOutputMssql: ServiceNameType
+   streamAnalyticsOutputServiceBusQueue: ServiceNameType
+   streamAnalyticsOutputServiceBusTopic: ServiceNameType
+   streamAnalyticsReferenceInputBlob: ServiceNameType
+   streamAnalyticsStreamInputBlob: ServiceNameType
+   streamAnalyticsStreamInputEventHub: ServiceNameType
+   streamAnalyticsStreamInputIotHub: ServiceNameType
+   subnet: ServiceNameType
+   templateDeployment: ServiceNameType
+   trafficManagerProfile: ServiceNameType
+   virtualMachine: ServiceNameType
+   virtualMachineScaleSet: ServiceNameType
+   virtualNetwork: ServiceNameType
+   virtualNetworkGateway: ServiceNameType
+   virtualNetworkPeering: ServiceNameType
+   virtualWan: ServiceNameType
+   windowsVirtualMachine: ServiceNameType
+   windowsVirtualMachineScaleSet: ServiceNameType
+ }
